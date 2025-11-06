@@ -1,3 +1,6 @@
+'''
+Printing machine that spits out next 10 even or odd numbers
+'''
 def print_machine(x):
     i = 0
     j = x
@@ -19,4 +22,3 @@ if __name__ == "__main__":
     except ValueError:
         print("That is an invalid input.")
 
-# Test comment
