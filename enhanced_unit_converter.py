@@ -31,25 +31,30 @@ def lbs_kg():
 
 def c_f():
     c = float(input('Enter temperature in celsius: '))
-    f = 9/5 * 35 + 32
+    f = c * 9/5 + 32
     print('Temperature in farenheit: {}'.format(f))
 def f_c():
     f = float(input('Enter temperature in farenheit: '))
-    c = 5/9 - (f - 32)
+    c = (f - 32) * 5/9
     print('Temperature in celsius: {}'.format(c))
 
 if __name__ == '__main__':
-    print_menu() 
-    choice = input('Which conversion would you like to do?: ') 
-    if choice == '1':
-        km_miles()
-    if choice == '2':
-        miles_km()
-    if choice == '3':
-        kg_lbs()
-    if choice == '4':
-        lbs_kg()
-    if choice == '5':
-        c_f()
-    if choice == '6':
-        f_c()
+    print_menu()
+    try: 
+        choice = int(input('Which conversion would you like to do?: '))
+        if choice not in range(1,7):
+            print("Please choice a number corresponding to a menu choice")
+        if choice == 1:
+            km_miles()
+        if choice == 2:
+            miles_km()
+        if choice == 3:
+            kg_lbs()
+        if choice == 4:
+            lbs_kg()
+        if choice == 5:
+            c_f()
+        if choice == 6:
+            f_c()
+    except ValueError:
+        print("That is an invalid input.")
