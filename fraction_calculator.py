@@ -16,4 +16,4 @@ def multiply(a,b):
     a = Fraction(input('Enter first fraction: '))
     b = Fraction(input('Enter second fraction: '))
     op = input('Operation to perform - Add, Subtract, Divide, Multiply: ')
-    if op == 'Add'
+    #if op == 'Add'
