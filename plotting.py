@@ -1,18 +1,31 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-climate = pd.read_csv('daily_climate.csv')
-print(climate.columns.tolist())
+alg_park_climate = pd.read_csv('algonquin_park_west_temp.csv')
+big_chute_climate = pd.read_csv('big_chute_temp.csv')
+# Code to see column names
+#print(alg_park_climate.columns.tolist())
 
 # Rename columns to be used for graph
-climate = climate.rename(columns = {
+alg_park_climate = alg_park_climate.rename(columns = {
+    'Max Temp (°C)' : 'max_temp',
+    'Date/Time' : 'date'
+})
+big_chute_climate = big_chute_climate.rename(columns = {
     'Max Temp (°C)' : 'max_temp',
     'Date/Time' : 'date'
 })
 
 # Grab first 15 temperature data points for y-axis 
-y_axis = climate.loc[0:15, 'max_temp']
+alg_y_axis = alg_park_climate.loc[0:10, 'max_temp']
+bigchute_y_axis = big_chute_climate.loc[0:10, 'max_temp']
 # Grab first 15 time data points for x-axis 
-x_axis = climate.loc[0:15, 'date']
+alg_x_axis = alg_park_climate.loc[0:10, 'date']
+bigchute_x_axis = big_chute_climate.loc[0:10, 'date']
 
-#def create_graph(x,y)
+def create_graph(x,y):
+    plt.plot(x,y)
+    plt.show()
+
+if __name__ == '__main__':
+    create_graph()
